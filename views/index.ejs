@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ./head %>
+</head>
+<body>
+<header>
+    <% include ./header %>
+</header>
+<div class="posts">
+    <% include ./partial/top %>
+</div>
+<div class="index">
+    <a href="/"><button>home</button></a>
+    <a href="/create"><button>new</button></a>
+    <ul>
+        <% data.forEach( function (e) { %>
+        <li>
+            <a href="/show/<%= e._id %>"><%= e.title %></a>
+            <span><%= e.created_at.toLocaleDateString() %></span>
+        </li>
+        <% }) %>
+    </ul>
+</div>
+
+<div class="tools">
+    <form action="/search" method="get">
+        <select name="search_type">
+            <option value="title">title</option>
+            <option value="body">body</option>
+            <option value="title+body">title+body</option>
+        </select>
+        <input type="text" name="search_text" value=""/>
+    </form>
+</div>
+<footer>
+    <% include ./footer %>
+</footer>
+</body>
+</html>

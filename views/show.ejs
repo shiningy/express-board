@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ./head %>
+</head>
+<body>
+<header>
+    <% include ./header %>
+</header>
+<div class="posts">
+    <% include ./partial/top %>
+</div>
+<div class="show">
+    <h3><%= data.title %></h3>
+    <div class="time">Created At <br>
+        <%= data.created_at.toLocaleDateString() %><br>
+        <%= data.created_at.toLocaleTimeString() %>
+    </div>
+    <% if (data.updated_at) { %>
+    <div class="time">Updated At <br>
+        <%= data.updated_at.toLocaleDateString() %><br>
+        <%= data.updated_at.toLocaleTimeString() %>
+    </div>
+    <% } %>
+    <p class="body"><%= data.body %></p>
+    <div class="tools">
+        <a href="/update/<%= data._id %>"><button>edit</button></a>
+        <a href="/delete/<%= data._id %>"><button>delete</button></a>
+    </div>
+    <a href="/"><button>back</button></a>
+
+</div>
+<footer>
+    <% include ./footer %>
+</footer>
+</body>
+</html>

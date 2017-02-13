@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ./head %>
+</head>
+<body>
+<header>
+    <% include ./header %>
+</header>
+<div class="posts">
+    <% include ./partial/top %>
+</div>
+<div class="create">
+    <h3>Create new post</h3>
+    <form class="create_form" action="/create" method="post">
+        <label>Title</label>
+        <input type="text" name="title" value="">
+        <label>Body</label>
+        <textarea name="content"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+    <a href="/"><button>back</button></a>
+</div>
+<footer>
+    <% include ./footer %>
+</footer>
+</body>
+</html>
