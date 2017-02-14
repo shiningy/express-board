@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ./partial/head %>
+</head>
+<body>
+<header>
+    <% include ./partial/header %>
+</header>
+<div class="posts">
+    <% include ./partial/top %>
+</div>
+<div class="signup">
+    <div>
+        <p>Create account</p>
+    </div>
+    <form action="/users/signup" method="post">
+        <div>
+            <label>Username:</label>
+            <input type="text" name="username"/>
+        </div>
+        <div>
+            <label>Password:</label>
+            <input type="password" name="password"/>
+        </div>
+        <div>
+            <input type="submit" value="signup"/>
+        </div>
+    </form>
+</div>
+<footer>
+    <% include ./partial/footer %>
+</footer>
+</body>
+</html>

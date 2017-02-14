@@ -1,7 +1,23 @@
 /**
  * Created by shiningy on 2017. 2. 11..
  */
-var mongoose = require('mongoose')
+var mongoose = require('mongoose');
+var passport = require('passport');
+
+var userSchema = mongoose.Schema({
+    local           : {
+        email       : String,
+        password    : String,
+    },
+    facebook        : {
+        id          : String,
+        token       : String,
+        email       : String,
+        name        : String
+    }
+});
+
+mongoose.model('User', userSchema);
 
 var Schema = mongoose.Schema;
 

@@ -6,15 +6,17 @@ var Post = mongoose.model('Post');
 
 /* GET home page. */
 router.get('/', function (req, res) {
+    console.log(req.user);
+
     Post.find().sort('-created_at').exec(function (err, posts) {
         if (err) return res.json({success: false, message: err});
-        res.render('index', {data: posts});
+        res.render('index', {user : req.user, data: posts});
     });
 });
 
 /* Create post */
 router.get('/create', function (req, res) {
-    res.render('create');
+    res.render('create', {user: req.user});
 });
 
 router.post('/create', function (req, res) {
@@ -31,14 +33,14 @@ router.post('/create', function (req, res) {
 router.get('/show/:id', function (req, res) {
     Post.findById(req.params.id, function (err, post) {
         if (err) return res.json({success: false, message: err});
-        res.render('show', {data: post});
+        res.render('show', {user: req.user, data: post});
     });
 });
 
 router.get('/update/:id', function (req, res) {
     Post.findById(req.params.id, function (err, post) {
         if (err) return res.json({success: false, message: err});
-        res.render('edit', {data: post});
+        res.render('edit', {user: req.user, data: post});
     })
 });
 
@@ -73,7 +75,7 @@ router.get('/search', function (req, res) {
     });
     // query[search_type] = new ReqExp(search_text, 'i');
     Post.find(query).exec(function (err, posts, count) {
-        res.render('index', {data: posts});
+        res.render('index', {user: req.user, data: posts});
     });
 });
 
