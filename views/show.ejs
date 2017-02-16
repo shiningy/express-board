@@ -22,11 +22,14 @@
         <%= data.updated_at.toLocaleTimeString() %>
     </div>
     <% } %>
+    <p class="author">author: <%= data.author %></p>
     <p class="body"><%= data.body %></p>
+    <% if (user.local.email == data.author) { %>
     <div class="tools">
         <a href="/update/<%= data._id %>"><button>edit</button></a>
         <a href="/delete/<%= data._id %>"><button>delete</button></a>
     </div>
+    <% } %>
     <a href="/"><button>back</button></a>
 
 </div>

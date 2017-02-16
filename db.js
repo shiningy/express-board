@@ -22,8 +22,9 @@ mongoose.model('User', userSchema);
 var Schema = mongoose.Schema;
 
 var Post = new Schema({
+    author      : {type: String, required: true},
     title       : {type: String, required: true},
-    body       : {type: String, required: true},
+    body        : {type: String, required: true},
     created_at  : {type: Date, default: Date.now},
     updated_at  : Date
 });

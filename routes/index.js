@@ -21,6 +21,7 @@ router.get('/create', function (req, res) {
 
 router.post('/create', function (req, res) {
     new Post({
+        author: req.user.local.email,
         title: req.body.title,
         body: req.body.content,
         created_at: Date.now()

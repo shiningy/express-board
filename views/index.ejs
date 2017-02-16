@@ -12,10 +12,13 @@
 </div>
 <div class="index">
     <a href="/"><button>home</button></a>
+    <% if (user) { %>
     <a href="/create"><button>new</button></a>
+    <% } %>
     <ul>
         <% data.forEach( function (e) { %>
         <li>
+            <span>author: </span><a href="/show/<%= e._id %>"><%= e.author %></a>
             <a href="/show/<%= e._id %>"><%= e.title %></a>
             <span><%= e.created_at.toLocaleDateString() %></span>
         </li>
@@ -29,6 +32,7 @@
             <option value="title">title</option>
             <option value="body">body</option>
             <option value="title+body">title+body</option>
+            <option value="author">author</option>
         </select>
         <input type="text" name="search_text" value=""/>
     </form>
